@@ -1,0 +1,137 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  line-height: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+#site_wrap {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr repeat(4, minmax(0, 272px)) 1fr;
+  grid-template-rows: 104px 215px 373px min-content 1fr;
+  grid-gap: 0;
+  grid-template-areas:
+    ". header header header header ."
+    "featured_header featured_header featured_header featured_header featured_header featured_header"
+    ". featured_main featured_main featured_main profile_picture ."
+    ". content content content content ."
+    "footer footer footer footer footer footer";
+}
+
+.header {
+  background-color: white;
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* .header .logo {
+    width: 85px;
+} */
+
+.header .nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.header .nav a {
+  text-decoration: none;
+  border: 2px solid #f2ab9b;
+  border-radius: 50em;
+  color: #f2ab9b;
+  padding: 15px 30px;
+  margin: 0 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.header .nav a:hover,
+.header .nav .active {
+  background-color: #f2ab9b;
+  color: white;
+}
+
+.featured_header {
+  background-image: url("images/star2.jpg");
+  grid-area: featured_header;
+}
+
+.featured_main {
+  grid-area: featured_main;
+}
+
+.featured_main h1 {
+  color: #707070;
+}
+
+.featured_main p {
+  color: #707070;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #5a8c87;
+  border: 2px solid #5a8c87;
+  border-radius: 50em;
+  color: white;
+  padding: 15px 30px;
+  margin: 0 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  float: right;
+}
+
+.profile_picture {
+  padding: 2em 1em;
+  grid-area: profile_picture;
+}
+
+.profile_picture img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.content {
+  grid-area: content;
+  grid-column-start: 3;
+  grid-column-end: -4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  padding-bottom: 3px;
+  margin: 5px;
+
+  display: flex;
+}
+
+.content img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.footer {
+  background-color: #333;
+  color: gray;
+  text-align: center;
+  padding-top: 2em;
+  grid-area: footer;
+}
+
+@media only screen and (max-width: 600px) {
+  #site_wrap {
+    grid-template-areas:
+      ". header header header header ."
+      "featured_header featured_header featured_header featured_header featured_header featured_header"
+      "featured_main featured_main featured_main featured_main featured_main featured_main"
+      " content content content content content content"
+      "footer footer footer footer footer footer";
+  }
+
+  .profile_picture {
+    display: none;
+  }
+}
